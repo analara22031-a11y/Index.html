@@ -48,6 +48,93 @@
       font-size: 1.1rem;
       line-height: 1.5;
     }
+
+    /* Seção Episódios Famosos com efeito "árvore flutuante" */
+    #episodios-famosos {
+      position: relative;
+      max-width: 700px;
+      height: 400px;
+      margin: 40px auto;
+      background-color: #f9e79f;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      font-family: 'Times New Roman', serif;
+      color: #2a3d66;
+      overflow: visible;
+      padding-top: 60px;
+    }
+    #episodios-famosos h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      position: relative;
+      z-index: 10;
+    }
+    #episodios-famosos ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      height: 320px;
+    }
+    #episodios-famosos li.flutuante {
+      position: absolute;
+      width: 250px;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 10px;
+      background: #fff9d1;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    #episodios-famosos li.flutuante:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      z-index: 20;
+    }
+    /* Posições específicas para cada item */
+    #episodios-famosos li.flutuante:nth-child(1) {
+      top: 50px;
+      left: 50px;
+      animation: flutuar 4s ease-in-out infinite;
+      animation-delay: 0s;
+    }
+    #episodios-famosos li.flutuante:nth-child(2) {
+      top: 120px;
+      right: 40px;
+      animation: flutuar 4s ease-in-out infinite;
+      animation-delay: 0.8s;
+    }
+    #episodios-famosos li.flutuante:nth-child(3) {
+      top: 200px;
+      left: 20px;
+      animation: flutuar 4s ease-in-out infinite;
+      animation-delay: 1.6s;
+    }
+    #episodios-famosos li.flutuante:nth-child(4) {
+      top: 250px;
+      right: 80px;
+      animation: flutuar 4s ease-in-out infinite;
+      animation-delay: 2.4s;
+    }
+    #episodios-famosos li.flutuante:nth-child(5) {
+      top: 320px;
+      left: 120px;
+      animation: flutuar 4s ease-in-out infinite;
+      animation-delay: 3.2s;
+    }
+
+    /* Animação de flutuação suave */
+    @keyframes flutuar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -55,6 +142,7 @@
   <nav class="menu">
     <button onclick="location.href='#home'">Home</button>
     <button onclick="location.href='#sobre'">Sobre</button>
+    <button onclick="location.href='#episodios-famosos'">Episódios</button>
     <button onclick="location.href='#galeria'">Galeria</button>
     <button onclick="location.href='#contato'">Contato</button>
     <button onclick="location.href='#autora'">Autora</button>
@@ -81,6 +169,33 @@
         Entre romances, trabalhos, sonhos e desafios da vida adulta, a série mistura humor, emoção e amizade, conquistando gerações com sua leveza e identificação com o público.
       </p>
     </div>
+  </section>
+
+  <!-- Nova seção Episódios Famosos -->
+  <section id="episodios-famosos">
+    <h2>Episódios Mais Famosos de Friends</h2>
+    <ul>
+      <li class="flutuante">
+        <strong>The One Where Everybody Finds Out</strong><br>
+        Phoebe descobre o romance secreto entre Monica e Chandler, levando a momentos hilários e revelações emocionantes.
+      </li>
+      <li class="flutuante">
+        <strong>The One with the Embryos</strong><br>
+        O jogo de perguntas entre Monica, Rachel, Chandler e Joey que decide quem ficará com o apartamento.
+      </li>
+      <li class="flutuante">
+        <strong>The One with Ross's Wedding</strong><br>
+        Ross vai se casar em Londres, mas a cerimônia é marcada por confusões e momentos icônicos.
+      </li>
+      <li class="flutuante">
+        <strong>The One with the Morning After</strong><br>
+        Ross e Rachel enfrentam as consequências de uma noite difícil, mostrando o lado emocional da série.
+      </li>
+      <li class="flutuante">
+        <strong>The One with the Thanksgiving Flashbacks</strong><br>
+        A turma relembra seus piores Dias de Ação de Graças, com momentos engraçados e revelações.
+      </li>
+    </ul>
   </section>
 
   <!-- Sessão Galeria -->
