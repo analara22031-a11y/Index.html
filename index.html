@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Site Acessível</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="acessibilidade.js"></script>
   <style>
     /* Fonte e cores base */
     body {
@@ -17,13 +15,39 @@
       display: flex;
       flex-direction: row;
       overflow-x: hidden;
+      transition: margin-left 0.3s ease;
+    }
+
+    /* Botão para abrir/fechar menu */
+    #btn-menu {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 300;
+      background: #f9e79f;
+      border: 2px solid #7d3c98;
+      color: #7d3c98;
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Times New Roman', serif;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+      user-select: none;
+    }
+    #btn-menu:hover {
+      background-color: #9b59b6;
+      color: #f9e79f;
+      border-color: #f9e79f;
+      transform: scale(1.1);
     }
 
     /* Menu lateral */
     nav.menu-lateral {
       position: fixed;
       top: 0;
-      left: 0;
+      left: -240px; /* escondido à esquerda */
       height: 100vh;
       width: 220px;
       background: #7d3c98;
@@ -32,7 +56,10 @@
       padding: 20px 10px;
       box-shadow: 2px 0 8px rgba(0,0,0,0.3);
       z-index: 200;
-      animation: slideInLeft 0.8s ease forwards;
+      transition: left 0.3s ease;
+    }
+    nav.menu-lateral.open {
+      left: 0; /* menu visível */
     }
     nav.menu-lateral button {
       background: #f9e79f;
@@ -59,14 +86,18 @@
     /* Container principal para conteúdo */
     main {
       flex: 1;
-      max-width: 900px;
-      margin-left: 240px; /* espaço para menu lateral */
+      margin-left: 0; /* começa sem margem */
       padding: 20px 30px 60px 30px;
       width: 100%;
       overflow-x: hidden;
+      transition: margin-left 0.3s ease;
+    }
+    main.menu-open {
+      margin-left: 220px; /* espaço para menu aberto */
+      width: calc(100vw - 220px);
     }
 
-    /* Botões de acessibilidade - movidos para canto inferior direito */
+    /* Botões de acessibilidade - canto inferior direito */
     .acessibilidade {
       position: fixed;
       bottom: 20px;
@@ -97,6 +128,8 @@
       border-color: #f9e79f;
       transform: scale(1.1);
     }
+
+    /* Resto do CSS (banner, seções, etc) permanece igual, só ajustei o container principal */
 
     /* Banner */
     .banner {
@@ -422,6 +455,10 @@
       body {
         flex-direction: column;
       }
+      #btn-menu {
+        top: 10px;
+        left: 10px;
+      }
       nav.menu-lateral {
         position: relative;
         width: 100%;
@@ -429,7 +466,8 @@
         flex-direction: row;
         padding: 10px 5px;
         box-shadow: none;
-        animation: none;
+        left: 0 !important;
+        transition: none;
       }
       nav.menu-lateral button {
         flex: 1;
@@ -437,16 +475,14 @@
         text-align: center;
       }
       main {
-        margin-left: 0;
+        margin-left: 0 !important;
         padding: 20px 15px 60px 15px;
-        max-width: 100%;
+        width: 100% !important;
       }
       .acessibilidade {
-        position: fixed;
+        flex-direction: row;
         bottom: 20px;
         right: 20px;
-        flex-direction: row;
-        gap: 10px;
       }
       .acessibilidade button {
         width: auto;
@@ -465,41 +501,9 @@
   </style>
 </head>
 <body>
+  <!-- Botão para abrir/fechar menu -->
+  <button id="btn-menu" aria-label="Abrir menu">Menu</button>
+
   <!-- Menu lateral -->
   <nav class="menu-lateral" aria-label="Menu principal">
-    <button onclick="location.href='#home'">Home</button>
-    <button onclick="location.href='#sobre'">Sobre</button>
-    <button onclick="location.href='#episodios-famosos'">Episódios</button>
-    <button onclick="location.href='#galeria'">Galeria</button>
-    <button onclick="location.href='#contato'">Contato</button>
-    <button onclick="location.href='#projetos'">Projetos</button>
-    <button onclick="location.href='#autora'">Autora</button>
-  </nav>
-
-  <!-- Botões de acessibilidade -->
-  <div class="acessibilidade" aria-label="Controles de acessibilidade">
-    <button onclick="aumentarFonte()" aria-label="Aumentar fonte">A+</button>
-    <button onclick="diminuirFonte()" aria-label="Diminuir fonte">A-</button>
-    <button onclick="resetFonte()" aria-label="Resetar fonte">Resetar</button>
-  </div>
-
-  <main>
-    <!-- Banner separado -->
-    <header id="home" class="banner" tabindex="0" aria-label="Banner do site">
-      <img src="https://hips.hearstapps.com/hmg-prod/images/friends-tv-show-1995-1559751295.jpg" alt="Banner do site com imagem da série Friends" />
-    </header>
-
-    <!-- Sessão Sobre -->
-    <section id="sobre" class="sobre" tabindex="0" aria-labelledby="sobre-title">
-      <div class="sobre-content">
-        <h1 id="sobre-title">Sobre Nós</h1>
-        <p>
-          Friends é uma sitcom norte-americana lançada em 1994 que acompanha a vida de seis amigos em Nova York.
-          Entre romances, trabalhos, sonhos e desafios da vida adulta, a série mistura humor, emoção e amizade, conquistando gerações com sua leveza e identificação com o público.
-        </p>
-      </div>
-    </section>
-
-    <!-- Seção Episódios Famosos organizada -->
-    <section id="episodios-famosos" tabindex="0" aria-labelledby="episodios-title">
-      <h2 id="episodios
+   
