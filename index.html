@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Site Acessível</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script defer src="acessibilidade.js"></script>
+  <style>
+    /* Pequenas animações para interatividade */
+    .menu button {
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .menu button:hover {
+      transform: scale(1.1);
+    }
+    .acessibilidade button {
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .acessibilidade button:hover {
+      transform: scale(1.1);
+      background-color: #ffcc80;
+    }
+    .grid-galeria img {
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .grid-galeria img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    }
+    /* Nova seção autora */
+    #autora {
+      background-color: #f7c948;
+      color: #2a3d66;
+      padding: 40px 20px;
+      text-align: center;
+      max-width: 700px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    #autora h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    #autora p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
   <!-- Menu no topo centralizado -->
@@ -14,6 +57,7 @@
     <button onclick="location.href='#sobre'">Sobre</button>
     <button onclick="location.href='#galeria'">Galeria</button>
     <button onclick="location.href='#contato'">Contato</button>
+    <button onclick="location.href='#autora'">Autora</button>
   </nav>
 
   <!-- Botões de acessibilidade -->
@@ -25,7 +69,7 @@
 
   <!-- Banner separado -->
   <header id="home" class="banner">
-    <img src="https://hips.hearstapps.com/hmg-prod/images/friends-tv-show-1995-1559751295.jpg" alt="Banner do site">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/friends-tv-show-1995-1559751295.jpg" alt="Banner do site" />
   </header>
 
   <!-- Sessão Sobre -->
@@ -43,10 +87,10 @@
   <section id="galeria" class="galeria">
     <h2>Galeria</h2>
     <div class="grid-galeria">
-      <img src="https://i.pinimg.com/1200x/19/82/63/198263e1e2a6b6d0c88cbe83d21c51d0.jpg" alt="Imagem 1">
-      <img src="https://i.pinimg.com/736x/b8/af/46/b8af462b6a4c1ac275134f45d2bc2413.jpg" alt="Imagem 2">
-      <img src="https://i.pinimg.com/1200x/67/9d/d3/679dd3b576112a74e4e6f0090100844a.jpg" alt="Imagem 3">
-      <img src="https://i.pinimg.com/1200x/3d/f7/f7/3df7f7631449119c9408350d5e8a8048.jpg" alt="Imagem 4">
+      <img src="https://i.pinimg.com/1200x/19/82/63/198263e1e2a6b6d0c88cbe83d21c51d0.jpg" alt="Imagem 1" />
+      <img src="https://i.pinimg.com/736x/b8/af/46/b8af462b6a4c1ac275134f45d2bc2413.jpg" alt="Imagem 2" />
+      <img src="https://i.pinimg.com/1200x/67/9d/d3/679dd3b576112a74e4e6f0090100844a.jpg" alt="Imagem 3" />
+      <img src="https://i.pinimg.com/1200x/3d/f7/f7/3df7f7631449119c9408350d5e8a8048.jpg" alt="Imagem 4" />
     </div>
   </section>
 
@@ -57,16 +101,26 @@
     Se você gosta do que fazemos, junte-se a nós!</p>
     <form>
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
+      <input type="text" id="nome" name="nome" required />
 
       <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" required />
 
       <label for="mensagem">Mensagem:</label>
       <textarea id="mensagem" name="mensagem" rows="4"></textarea>
 
       <button type="submit">Enviar</button>
     </form>
+  </section>
+
+  <!-- Nova Sessão: Informações sobre a autora -->
+  <section id="autora">
+    <h2>Informações sobre a autora</h2>
+    <p>
+      Olá! Tenho 18 anos e sou uma grande apaixonada pela série Friends, que me inspira tanto na vida quanto na criatividade. 
+      Além disso, sou estudante de programação, sempre buscando aprender novas linguagens e desenvolver projetos que unam tecnologia e entretenimento. 
+      Amo café, música e compartilhar conhecimento com outras pessoas que também curtem o universo da tecnologia e cultura pop.
+    </p>
   </section>
 
   <!-- Footer -->
