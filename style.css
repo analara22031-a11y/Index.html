@@ -1,7 +1,11 @@
 :root {
-  --cor-principal: #ff6600; 
-  --cor-secundaria: #ffffff; 
-  --cor-texto: #111111;
+  --cor-principal: #f7c948; /* amarelo do sofá */
+  --cor-secundaria: #2a3d66; /* azul escuro */
+  --cor-texto: #ffffff; /* texto claro para contraste */
+  --cor-accento: #e94e1b; /* vermelho alaranjado */
+  --cor-botao-fundo: #ffffff; /* branco para botões */
+  --cor-botao-texto: #2a3d66; /* azul escuro para texto dos botões */
+  --cor-botao-hover: #e94e1b; /* vermelho para hover */
 }
 
 /* Ajustes gerais */
@@ -36,15 +40,19 @@ main {
 }
 
 .menu button {
-  background: #fff;
+  background: var(--cor-botao-fundo);
   border: none;
   padding: 8px 16px;
   cursor: pointer;
   border-radius: 5px;
+  color: var(--cor-botao-texto);
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .menu button:hover {
-  background: #ddd;
+  background: var(--cor-botao-hover);
+  color: var(--cor-botao-fundo);
 }
 
 /* Botões de acessibilidade */
@@ -58,10 +66,18 @@ main {
   margin: 0 5px;
   padding: 6px 10px;
   border: none;
-  background: #fff;
+  background: var(--cor-botao-fundo);
   cursor: pointer;
   border-radius: 5px;
   border: 1px solid #ccc;
+  color: var(--cor-botao-texto);
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.acessibilidade button:hover {
+  background: var(--cor-botao-hover);
+  color: var(--cor-botao-fundo);
 }
 
 /* Banner separado */
@@ -88,7 +104,7 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(42, 61, 102, 0.7); /* azul escuro translúcido para melhor contraste */
 }
 
 .sobre-content {
@@ -96,14 +112,17 @@ main {
   max-width: 500px;
   margin: auto;
   text-align: center;
-  color: #fff;
+  color: var(--cor-principal);
   text-shadow: 1px 1px 3px #000;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 /* Galeria */
 .galeria {
   text-align: center;
   padding: 40px 20px;
+  background-color: #f0e6d2; /* tom creme suave para destacar as imagens */
 }
 
 .grid-galeria {
@@ -117,12 +136,20 @@ main {
 .grid-galeria img {
   width: 100%;
   border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.grid-galeria img:hover {
+  transform: scale(1.05);
 }
 
 /* Contato */
 .contato {
   padding: 40px 20px;
   text-align: center;
+  background-color: var(--cor-principal);
+  color: var(--cor-botao-texto);
 }
 
 form {
@@ -137,25 +164,35 @@ form input, form textarea, form button {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form input, form textarea {
+  border: 1px solid #e94e1b;
+  background-color: #fff;
+  color: #333;
 }
 
 form button {
-  background: var(--cor-principal);
-  color: #fff;
+  background: var(--cor-botao-texto);
+  color: var(--cor-botao-fundo);
   border: none;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 form button:hover {
-  background: #cc5200;
+  background: #cc3d15;
 }
 
 /* Footer */
 footer {
-  background-color: #111;
-  color: #fff;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-principal);
   text-align: center;
   padding: 15px;
   margin-top: auto;
   width: 100%;
+  font-weight: bold;
 }
