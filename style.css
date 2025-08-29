@@ -1,11 +1,12 @@
 :root {
-  --cor-principal: #f7c948; /* amarelo do sofá */
+  --cor-principal: #6A0DAD; /* roxo da porta da Monica */
   --cor-secundaria: #2a3d66; /* azul escuro */
   --cor-texto: #ffffff; /* texto claro para contraste */
-  --cor-accento: #e94e1b; /* vermelho alaranjado */
-  --cor-botao-fundo: #ffffff; /* branco para botões */
-  --cor-botao-texto: #2a3d66; /* azul escuro para texto dos botões */
-  --cor-botao-hover: #e94e1b; /* vermelho para hover */
+  --cor-accento: #f7c948; /* amarelo do sofá */
+  --cor-botao-fundo: #f7c948; /* amarelo para botões */
+  --cor-botao-texto: #6A0DAD; /* roxo para texto dos botões */
+  --cor-botao-hover: #4b077a; /* roxo mais escuro para hover */
+  --cor-botao-borda: #4b077a; /* borda roxa escura */
 }
 
 /* Ajustes gerais */
@@ -41,18 +42,19 @@ main {
 
 .menu button {
   background: var(--cor-botao-fundo);
-  border: none;
+  border: 2px solid var(--cor-botao-borda);
   padding: 8px 16px;
   cursor: pointer;
   border-radius: 5px;
   color: var(--cor-botao-texto);
   font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .menu button:hover {
   background: var(--cor-botao-hover);
   color: var(--cor-botao-fundo);
+  border-color: var(--cor-botao-fundo);
 }
 
 /* Botões de acessibilidade */
@@ -65,19 +67,19 @@ main {
 .acessibilidade button {
   margin: 0 5px;
   padding: 6px 10px;
-  border: none;
+  border: 2px solid var(--cor-botao-borda);
   background: var(--cor-botao-fundo);
   cursor: pointer;
   border-radius: 5px;
-  border: 1px solid #ccc;
   color: var(--cor-botao-texto);
   font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .acessibilidade button:hover {
   background: var(--cor-botao-hover);
   color: var(--cor-botao-fundo);
+  border-color: var(--cor-botao-fundo);
 }
 
 /* Banner separado */
@@ -112,7 +114,7 @@ main {
   max-width: 500px;
   margin: auto;
   text-align: center;
-  color: var(--cor-principal);
+  color: var(--cor-accento);
   text-shadow: 1px 1px 3px #000;
   font-weight: bold;
   font-size: 1.2rem;
@@ -123,6 +125,7 @@ main {
   text-align: center;
   padding: 40px 20px;
   background-color: #f0e6d2; /* tom creme suave para destacar as imagens */
+  color: var(--cor-principal);
 }
 
 .grid-galeria {
@@ -138,6 +141,7 @@ main {
   border-radius: 6px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .grid-galeria img:hover {
@@ -159,31 +163,44 @@ form {
   margin: auto;
 }
 
-form input, form textarea, form button {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+form label {
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--cor-principal);
 }
 
 form input, form textarea {
-  border: 1px solid #e94e1b;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1.5px solid var(--cor-botao-borda);
+  font-size: 1rem;
   background-color: #fff;
   color: #333;
+  transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus {
+  border-color: var(--cor-principal);
+  outline: none;
 }
 
 form button {
-  background: var(--cor-botao-texto);
-  color: var(--cor-botao-fundo);
-  border: none;
+  margin-top: 15px;
+  background: var(--cor-botao-fundo);
+  color: var(--cor-botao-texto);
+  border: 2px solid var(--cor-botao-borda);
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
+  padding: 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 form button:hover {
-  background: #cc3d15;
+  background: var(--cor-botao-hover);
+  color: var(--cor-botao-fundo);
+  border-color: var(--cor-botao-fundo);
 }
 
 /* Footer */
