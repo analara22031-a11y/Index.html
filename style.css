@@ -1,20 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 :root {
-  --cor-principal: #6A0DAD; /* roxo da porta da Monica */
-  --cor-secundaria: #2a3d66; /* azul escuro */
-  --cor-texto: #ffffff; /* texto claro para contraste */
+  --cor-principal: #9b59b6; /* roxo lilás */
+  --cor-secundaria: #9b59b6; /* fundo roxo lilás */
+  --cor-texto-claro: #000000; /* texto preto para fundos claros */
+  --cor-texto-escuro: #ffffff; /* texto branco para fundos escuros */
   --cor-accento: #f7c948; /* amarelo do sofá */
   --cor-botao-fundo: #f7c948; /* amarelo para botões */
-  --cor-botao-texto: #6A0DAD; /* roxo para texto dos botões */
-  --cor-botao-hover: #4b077a; /* roxo mais escuro para hover */
-  --cor-botao-borda: #4b077a; /* borda roxa escura */
+  --cor-botao-texto: #9b59b6; /* roxo lilás para texto dos botões */
+  --cor-botao-hover: #7d3c98; /* roxo lilás mais escuro para hover */
+  --cor-botao-borda: #7d3c98; /* borda roxa lilás escura */
 }
 
 /* Ajustes gerais */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   background-color: var(--cor-secundaria);
-  color: var(--cor-texto);
+  color: var(--cor-texto-escuro);
   line-height: 1.6;
   font-size: 16px;
 
@@ -47,8 +50,9 @@ main {
   cursor: pointer;
   border-radius: 5px;
   color: var(--cor-botao-texto);
-  font-weight: bold;
+  font-weight: 600;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 .menu button:hover {
@@ -72,8 +76,9 @@ main {
   cursor: pointer;
   border-radius: 5px;
   color: var(--cor-botao-texto);
-  font-weight: bold;
+  font-weight: 600;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 .acessibilidade button:hover {
@@ -106,7 +111,7 @@ main {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(42, 61, 102, 0.7); /* azul escuro translúcido para melhor contraste */
+  background: rgba(155, 89, 182, 0.7); /* lilás translúcido para melhor contraste */
 }
 
 .sobre-content {
@@ -114,10 +119,11 @@ main {
   max-width: 500px;
   margin: auto;
   text-align: center;
-  color: var(--cor-accento);
+  color: var(--cor-texto-escuro);
   text-shadow: 1px 1px 3px #000;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.2rem;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 /* Galeria */
@@ -125,7 +131,8 @@ main {
   text-align: center;
   padding: 40px 20px;
   background-color: #f0e6d2; /* tom creme suave para destacar as imagens */
-  color: var(--cor-principal);
+  color: var(--cor-texto-claro);
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 .grid-galeria {
@@ -153,7 +160,8 @@ main {
   padding: 40px 20px;
   text-align: center;
   background-color: var(--cor-principal);
-  color: var(--cor-botao-texto);
+  color: var(--cor-texto-escuro);
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 form {
@@ -164,9 +172,10 @@ form {
 }
 
 form label {
-  font-weight: bold;
+  font-weight: 600;
   margin-top: 10px;
   color: var(--cor-principal);
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 form input, form textarea {
@@ -176,8 +185,9 @@ form input, form textarea {
   border: 1.5px solid var(--cor-botao-borda);
   font-size: 1rem;
   background-color: #fff;
-  color: #333;
+  color: var(--cor-texto-claro);
   transition: border-color 0.3s;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 form input:focus, form textarea:focus {
@@ -191,10 +201,11 @@ form button {
   color: var(--cor-botao-texto);
   border: 2px solid var(--cor-botao-borda);
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
   padding: 12px;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 form button:hover {
@@ -206,10 +217,11 @@ form button:hover {
 /* Footer */
 footer {
   background-color: var(--cor-secundaria);
-  color: var(--cor-principal);
+  color: var(--cor-texto-escuro);
   text-align: center;
   padding: 15px;
   margin-top: auto;
   width: 100%;
-  font-weight: bold;
-}
+  font-weight: 600;
+  font-family: 'Poppins', Arial, sans-serif;
+  }
