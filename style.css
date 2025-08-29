@@ -5,8 +5,8 @@
   --cor-secundaria: #9b59b6; /* fundo roxo lilás */
   --cor-texto-claro: #000000; /* texto preto para fundos claros */
   --cor-texto-escuro: #ffffff; /* texto branco para fundos escuros */
-  --cor-accento: #f7c948; /* amarelo do sofá */
-  --cor-botao-fundo: #f7c948; /* amarelo para botões */
+  --cor-accento: #f9e79f; /* amarelo suave */
+  --cor-botao-fundo: #f9e79f; /* amarelo suave para botões */
   --cor-botao-texto: #9b59b6; /* roxo lilás para texto dos botões */
   --cor-botao-hover: #7d3c98; /* roxo lilás mais escuro para hover */
   --cor-botao-borda: #7d3c98; /* borda roxa lilás escura */
@@ -51,7 +51,7 @@ main {
   border-radius: 5px;
   color: var(--cor-botao-texto);
   font-weight: 600;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
   font-family: 'Poppins', Arial, sans-serif;
 }
 
@@ -59,6 +59,7 @@ main {
   background: var(--cor-botao-hover);
   color: var(--cor-botao-fundo);
   border-color: var(--cor-botao-fundo);
+  transform: scale(1.05);
 }
 
 /* Botões de acessibilidade */
@@ -77,7 +78,7 @@ main {
   border-radius: 5px;
   color: var(--cor-botao-texto);
   font-weight: 600;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
   font-family: 'Poppins', Arial, sans-serif;
 }
 
@@ -85,6 +86,7 @@ main {
   background: var(--cor-botao-hover);
   color: var(--cor-botao-fundo);
   border-color: var(--cor-botao-fundo);
+  transform: scale(1.05);
 }
 
 /* Banner separado */
@@ -98,6 +100,12 @@ main {
   height: auto;
   display: block;
   margin: 0 auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.banner img:hover {
+  transform: scale(1.02);
 }
 
 /* Sessão Sobre */
@@ -105,6 +113,9 @@ main {
   background: url("https://www.nbcstore.com/cdn/shop/collections/friends-banner_1.jpg?v=1689008154") center/cover no-repeat;
   position: relative;
   padding: 60px 20px;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 40px auto;
 }
 
 .sobre::before {
@@ -112,6 +123,7 @@ main {
   position: absolute;
   inset: 0;
   background: rgba(155, 89, 182, 0.7); /* lilás translúcido para melhor contraste */
+  border-radius: 10px;
 }
 
 .sobre-content {
@@ -130,7 +142,7 @@ main {
 .galeria {
   text-align: center;
   padding: 40px 20px;
-  background-color: #f0e6d2; /* tom creme suave para destacar as imagens */
+  background-color: var(--cor-secundaria);
   color: var(--cor-texto-claro);
   font-family: 'Poppins', Arial, sans-serif;
 }
@@ -140,19 +152,22 @@ main {
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   max-width: 650px;
-  margin: auto;
+  margin: 0 auto; /* centraliza o grid */
+  justify-items: center; /* centraliza imagens dentro das células */
 }
 
 .grid-galeria img {
   width: 100%;
+  max-width: 300px;
   border-radius: 6px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .grid-galeria img:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
 
 /* Contato */
@@ -160,8 +175,11 @@ main {
   padding: 40px 20px;
   text-align: center;
   background-color: var(--cor-principal);
-  color: var(--cor-texto-escuro);
+  color: var(--cor-texto-claro);
   font-family: 'Poppins', Arial, sans-serif;
+  border-radius: 10px;
+  max-width: 700px;
+  margin: 40px auto;
 }
 
 form {
@@ -204,7 +222,7 @@ form button {
   font-weight: 600;
   padding: 12px;
   border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
   font-family: 'Poppins', Arial, sans-serif;
 }
 
@@ -212,16 +230,19 @@ form button:hover {
   background: var(--cor-botao-hover);
   color: var(--cor-botao-fundo);
   border-color: var(--cor-botao-fundo);
+  transform: scale(1.05);
 }
 
 /* Footer */
 footer {
   background-color: var(--cor-secundaria);
-  color: var(--cor-texto-escuro);
+  color: var(--cor-texto-claro);
   text-align: center;
   padding: 15px;
   margin-top: auto;
   width: 100%;
   font-weight: 600;
   font-family: 'Poppins', Arial, sans-serif;
-  }
+  user-select: none;
+  letter-spacing: 0.05em;
+}
