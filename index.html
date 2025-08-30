@@ -1,11 +1,344 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Site Acessível</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script defer src="acessibilidade.js"></script>
+  <style>
+    /* Fonte base para o corpo */
+    body {
+      font-family: 'Times New Roman', serif;
+      background-color: #9b59b6; /* lilás */
+      color: #fff;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Fonte diferente para títulos */
+    h1, h2, strong {
+      font-family: 'Georgia', serif;
+      font-weight: 700;
+      color: #f9e79f;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    /* Títulos dos episódios com cor roxa do fundo */
+    #episodios-famosos h2,
+    #episodios-famosos strong {
+      color: #9b59b6; /* tom de roxo do fundo */
+      text-shadow: none;
+    }
+    nav.menu {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: #9b59b6;
+      padding: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    nav.menu button {
+      background: #f9e79f;
+      border: 2px solid #7d3c98;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      color: #9b59b6;
+      font-weight: 600;
+      font-family: 'Times New Roman', serif;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+    }
+    nav.menu button:hover {
+      background: #7d3c98;
+      color: #f9e79f;
+      border-color: #f9e79f;
+      transform: scale(1.1);
+    }
+    .acessibilidade {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0;
+      gap: 10px;
+    }
+    .acessibilidade button {
+      padding: 6px 12px;
+      border: 2px solid #7d3c98;
+      background: #f9e79f;
+      cursor: pointer;
+      border-radius: 5px;
+      color: #9b59b6;
+      font-weight: 600;
+      font-family: 'Times New Roman', serif;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+    }
+    .acessibilidade button:hover {
+      background-color: #7d3c98;
+      color: #f9e79f;
+      border-color: #f9e79f;
+      transform: scale(1.1);
+    }
+    .banner {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .banner img {
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .banner img:hover {
+      transform: scale(1.03);
+    }
+    #sobre {
+      background: url("https://www.nbcstore.com/cdn/shop/collections/friends-banner_1.jpg?v=1689008154") center/cover no-repeat;
+      position: relative;
+      padding: 60px 20px;
+      border-radius: 10px;
+      max-width: 1100px;
+      margin: 0 auto 40px auto;
+      color: #f9e79f;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.3rem;
+      font-family: 'Times New Roman', serif;
+    }
+    #sobre::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(155, 89, 182, 0.75);
+      border-radius: 10px;
+      z-index: 0;
+    }
+    #sobre > div {
+      position: relative;
+      z-index: 1;
+      text-shadow: 1px 1px 4px #000;
+      max-width: 700px;
+      margin: auto;
+    }
+    /* Nova seção Episódios Famosos */
+    #episodios-famosos {
+      max-width: 1100px;
+      margin: 40px auto;
+      background-color: #f9e79f;
+      color: #2a3d66;
+      border-radius: 10px;
+      padding: 30px;
+      font-family: 'Times New Roman', serif;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      animation: fadeInUp 1.5s ease forwards;
+    }
+    #episodios-famosos ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    #episodios-famosos li {
+      background: #fff9d1;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #episodios-famosos li:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    #galeria {
+      max-width: 1100px;
+      margin: 40px auto;
+      text-align: center;
+      font-family: 'Times New Roman', serif;
+      color: #f9e79f;
+    }
+    .grid-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+    .grid-galeria img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .grid-galeria img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      z-index: 10;
+      position: relative;
+    }
+    #contato {
+      max-width: 700px;
+      margin: 40px auto 60px auto;
+      background-color: #9b59b6;
+      color: #f9e79f;
+      font-family: 'Times New Roman', serif;
+      border-radius: 10px;
+      padding: 40px 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    #contato h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+    #contato p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    form label {
+      font-weight: 600;
+      margin-top: 10px;
+      color: #f9e79f;
+      font-size: 1.1rem;
+    }
+    form input, form textarea {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1.5px solid #7d3c98;
+      font-size: 1rem;
+      background-color: #fff;
+      color: #333;
+      transition: border-color 0.3s;
+      font-family: 'Times New Roman', serif;
+    }
+    form input:focus, form textarea:focus {
+      border-color: #f9e79f;
+      outline: none;
+    }
+    form button {
+      margin-top: 15px;
+      background: #f9e79f;
+      color: #9b59b6;
+      border: 2px solid #7d3c98;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.2s;
+      font-family: 'Times New Roman', serif;
+      font-size: 1.1rem;
+      align-self: center;
+      max-width: 150px;
+    }
+    form button:hover {
+      background: #7d3c98;
+      color: #f9e79f;
+      border-color: #f9e79f;
+      transform: scale(1.1);
+    }
+    footer {
+      background-color: #7d3c98;
+      color: #f9e79f;
+      text-align: center;
+      padding: 15px;
+      font-weight: 600;
+      font-family: 'Times New Roman', serif;
+      user-select: none;
+      letter-spacing: 0.05em;
+    }
+    /* Nova seção Autora */
+    #autora {
+      max-width: 700px;
+      margin: 40px auto 60px auto;
+      background-color: #f9e79f;
+      color: #2a3d66;
+      border-radius: 10px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      font-family: 'Times New Roman', serif;
+      text-align: center;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+    #autora h2 {
+      font-family: 'Georgia', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #7d3c98;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    #autora p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #2a3d66;
+    }
+    /* Nova seção Projetos da Autora */
+    #projetos-autora {
+      max-width: 1100px;
+      margin: 40px auto 60px auto;
+      background-color: #f9e79f;
+      color: #2a3d66;
+      border-radius: 10px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      font-family: 'Times New Roman', serif;
+      animation: fadeInUp 1.5s ease forwards;
+      text-align: center;
+    }
+    #projetos-autora h2 {
+      font-family: 'Georgia', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #7d3c98;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    #projetos-autora ul {
+      list-style: disc inside;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2a3d66;
+      text-align: left;
+      line-height: 1.5;
+    }
+    #projetos-autora ul li {
+      margin-bottom: 12px;
+      cursor: default;
+      transition: color 0.3s ease;
+    }
+    #projetos-autora ul li:hover {
+      color: #7d3c98;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Menu no topo centralizado -->
@@ -25,12 +358,12 @@
 
   <!-- Banner separado -->
   <header id="home" class="banner">
-    <img src="https://hips.hearstapps.com/hmg-prod/images/friends-tv-show-1995-1559751295.jpg" alt="Banner do site">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/friends-tv-show-1995-1559751295.jpg" alt="Banner do site" />
   </header>
 
   <!-- Sessão Sobre -->
   <section id="sobre" class="sobre">
-    <div class="sobre-content">
+    <div>
       <h1>Sobre Nós</h1>
       <p>
         Friends é uma sitcom norte-americana lançada em 1994 que acompanha a vida de seis amigos em Nova York.
@@ -39,15 +372,54 @@
     </div>
   </section>
 
+  <!-- Nova seção: Principais Episódios -->
+  <section id="episodios-famosos">
+    <h2>Principais Episódios de Friends</h2>
+    <ul>
+      <li>
+        <strong>The One Where Everybody Finds Out</strong>
+        Phoebe descobre o romance secreto entre Monica e Chandler, levando a momentos hilários e revelações emocionantes.
+      </li>
+      <li>
+        <strong>The One with the Embryos</strong>
+        O jogo de perguntas entre Monica, Rachel, Chandler e Joey que decide quem ficará com o apartamento.
+      </li>
+      <li>
+        <strong>The One with Ross's Wedding</strong>
+        Ross vai se casar em Londres, mas a cerimônia é marcada por confusões e momentos icônicos.
+      </li>
+      <li>
+        <strong>The One with the Morning After</strong>
+        Ross e Rachel enfrentam as consequências de uma noite difícil, mostrando o lado emocional da série.
+      </li>
+      <li>
+        <strong>The One with the Thanksgiving Flashbacks</strong>
+        A turma relembra seus piores Dias de Ação de Graças, com momentos engraçados e revelações.
+      </li>
+    </ul>
+  </section>
+
   <!-- Sessão Galeria -->
   <section id="galeria" class="galeria">
     <h2>Galeria</h2>
     <div class="grid-galeria">
-      <img src="https://i.pinimg.com/1200x/19/82/63/198263e1e2a6b6d0c88cbe83d21c51d0.jpg" alt="Imagem 1">
-      <img src="https://i.pinimg.com/736x/b8/af/46/b8af462b6a4c1ac275134f45d2bc2413.jpg" alt="Imagem 2">
-      <img src="https://i.pinimg.com/1200x/67/9d/d3/679dd3b576112a74e4e6f0090100844a.jpg" alt="Imagem 3">
-      <img src="https://i.pinimg.com/1200x/3d/f7/f7/3df7f7631449119c9408350d5e8a8048.jpg" alt="Imagem 4">
+      <img src="https://i.pinimg.com/1200x/19/82/63/198263e1e2a6b6d0c88cbe83d21c51d0.jpg" alt="Imagem 1" />
+      <img src="https://i.pinimg.com/736x/b8/af/46/b8af462b6a4c1ac275134f45d2bc2413.jpg" alt="Imagem 2" />
+      <img src="https://i.pinimg.com/1200x/67/9d/d3/679dd3b576112a74e4e6f0090100844a.jpg" alt="Imagem 3" />
+      <img src="https://i.pinimg.com/1200x/3d/f7/f7/3df7f7631449119c9408350d5e8a8048.jpg" alt="Imagem 4" />
     </div>
+  </section>
+
+  <!-- Sessão Projetos da Autora -->
+  <section id="projetos-autora">
+    <h2>Projetos da Autora</h2>
+    <ul>
+      <li>Quiz interativo para testar conhecimentos sobre Friends</li>
+      <li>Aplicativo de receitas inspiradas nos pratos da série</li>
+      <li>Blog com análises e curiosidades dos episódios</li>
+      <li>Jogo de memória com personagens e cenas icônicas</li>
+      <li>Podcast fictício discutindo temas e personagens</li>
+    </ul>
   </section>
 
   <!-- Sessão Contato -->
@@ -57,10 +429,10 @@
     Se você gosta do que fazemos, junte-se a nós!</p>
     <form>
       <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
+      <input type="text" id="nome" name="nome" required />
 
       <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" name="email" required />
 
       <label for="mensagem">Mensagem:</label>
       <textarea id="mensagem" name="mensagem" rows="4"></textarea>
@@ -69,9 +441,10 @@
     </form>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 site de [nome aqui]. Todos os direitos reservados.</p>
-  </footer>
-</body>
-</html>
+  <!-- Nova seção: Sobre a Autora -->
+  <section id="autora">
+    <h2>Sobre a Autora</h2>
+    <p>
+      Olá! Tenho 18 anos e sou apaixonada pela série Friends desde criança. Além de ser uma fã dedicada, estudo programação e adoro criar projetos que unem tecnologia e cultura pop. Este site é uma forma de compartilhar meu amor pela série e minha jornada no mundo da programação. Espero que você goste e se divirta tanto quanto eu!
+  </p>
+</section>
